@@ -1,0 +1,616 @@
+            /* global */
+
+BODY                   { margin: 0;
+                         font-size: medium;
+                         background-color: #eeeeff;
+                         text-size-adjust: none;
+                       }
+
+H1, H2, H3             { font-family: Sniglet, arial, helvetica; }
+
+SUP                    { font-size: 60%;
+                         vertical-align: 50%;
+                         line-height: 110%;
+                       }
+SMALL                  { font-size: 75%; }
+A                      { text-decoration: none; color: #220077; }
+A:link                 { text-decoration: none; color: #220077; }
+A:visited              { text-decoration: none; color: #220077; }
+A:active               { text-decoration: none; color: #3333bb; }
+A:hover                { text-decoration: none; color: #3333bb; }
+A IMG                  { border: none; }
+
+TABLE                  { border-spacing: 0;
+                         border-collapse: collapse;
+                       }
+
+            /* top banner, and container for nav and main */
+HEADER                 { width: 100%; }
+.banner-back           { background-color: #d4d4f4;
+                         background-image: url("img/banner-background-up.png");
+                         background-repeat: repeat-x;
+                       }
+.banner-under          { background-color: #d4d4f4;
+                         background-image: url("img/banner-background-down.png");
+                         background-repeat: repeat-x;
+                       }
+#thebanner             { max-width: 700px;
+                         min-width: 320px;
+                         width: 100%;
+                         height: auto;
+                         margin: 0 auto;
+                       }
+
+.columns               { width: 100%;
+                         background-color: #eeeeff;
+                         vertical-align: top;
+                       }
+.tr_columns            { vertical-align: top; }         /* remove when detableizing */
+
+.debug                 { font-family: monospace;
+                         white-space: pre-wrap;
+                         margin-top: 2em;
+                         color: maroon;
+                         background-color: white;
+                       }        /* if PRODUCTION is true, inline display:none is added where this class is used */
+
+            /* the left column or top menu bar - navigation */
+/* .navbutton is currently unused: */
+.navbutton             { padding: 0 0.4em 0.1em 0.4em;
+                         font-size: 10pt;               /* small devices make this larger and more obvious */
+                         font-family: "Fredoka One", "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+                         color: #556688;
+                         background-color: #eee2c1;
+                         cursor: pointer;
+                         position: absolute;
+                         z-index: 1;
+                         left: 1em;
+                         top: -0.9em;
+                         border: 1px solid #6f4a29;
+                         border-radius: 0.25em;
+                         box-shadow: 0.1em 0.1em 0.3em #6f4a29;
+                       }
+.navbutton small       { letter-spacing: 0.25em;
+                         font-size: 75%;
+                         position: relative;
+                         top: -0.06em; }
+
+.indexx                { white-space: nowrap;
+                         font-family: Sniglet, arial, helvetica;
+                         padding: 0;
+                         vertical-align: top;
+                         background-color: #d4d4f4;
+                         border-right: 2px solid #222255;
+                       }
+.indexx #expanded      { padding: 0 0.4em; }
+.collapsate            { background-image: url("img/expando.png");
+                         background-repeat: repeat-y;
+                         width: 19px;
+                         cursor: pointer;
+                       }
+
+.navv                  { padding: 0 1em 0 0.5em; }
+@media (max-width: 799px) {
+    #collapsar         { display: none; }
+}
+.widenavv              { position: relative; }
+.narrnavv              { display: none; }
+@media (max-width: 799px) {
+    .narrnavv          { display: block;
+                         padding: 0.2em 0;
+                       }
+    .wideonly          { display: none; }
+}
+
+.navvmenu              { position: relative;
+                         font-family: Sniglet, arial, helvetica;
+                         padding: 0.1em 0.25em;
+                         margin-left: 0.3em;
+                         cursor: pointer;
+                         display: inline-block;
+                         background: #d4d4f4;       /* fallback */
+                         background: linear-gradient(to bottom, #eeeeff, #d4d4f4);
+                       }
+.navvmenu:hover        { background: linear-gradient(to bottom, #eeeeff, #b4b4f4); }
+.navvitem              { font-size: 18px; }         /* largest size that fits in 320 width */
+.navvicon              { width: 0.8em;
+                         height: 1.0em;
+                         margin-bottom: -0.25em;
+                       }
+.plopnavv              { position: absolute;
+                         font-family: Sniglet, arial, helvetica;
+                         top: 1.8em;
+                         background: #d4d4f4;  /* fallback */
+                         background-color: rgba(218, 218, 250, 0.92);
+                         border: 1px solid #222255;
+                         box-shadow: 0.1em 0.1em 0.33em #00000088;
+                         z-index: 3;
+                       }
+.plopnavv .navv H2     { padding-right: 0.75em; }
+.plopnavv .navv HR     { width: 50%;
+                         height: 2px;
+                         background-color: #666666;
+                         border: none;
+                         margin: 1em auto;
+                       }
+
+.indexx H1             { font-size: 111%;
+                         font-weight: bold;
+                         margin-top: 1.25em;
+                         margin-left: 1.3em;
+                         text-indent: -1.3em;
+                       }
+.plopnavv .indexx H1   { font-size: 100%; }
+.plopnavv .icon        { width: 2em; }
+.plopnavv .tophint     { margin: 0.8em auto;
+                         font-size: 90%;
+                       }
+
+/* CSS 2 can't do image bullets with any fine control, so get primitive... */
+/* nb - browser support for resizing backgrounds is iffy, so to scale down
+   a large png, it'll have to be made into a foreground image. */
+.indexx UL             { margin: 0;
+                         padding: 0;
+                         list-style-type: none;
+                       }
+.indexx LI             { margin-top: 0.5em;
+                         margin-bottom: 0.5em;
+                         padding-left: 28px;
+                         background-image: url("img/capebullet.png");
+                         background-repeat: no-repeat;
+                         background-position: 0em 0.25em;
+                         /* background-size: auto 1em;  -- doesn't work in IE 8 */
+                       }
+.indexx H2             { font-size: 95%;
+                         font-weight: bold;
+                         margin-left: 1.3em;
+                         text-indent: -1.3em;
+                       }
+/*
+.indexx HR             { margin: 1.5em;
+                         margin-right: 33%;
+                         margin-left: 0.3em;
+                       }
+*/
+.indexx A:hover        { text-decoration: underline; }
+
+.tophint               { text-align: center;
+                         font-style: italic;
+                         margin-top: 1.5em;
+                         margin-bottom: 1.5em;
+                       }
+.foldy                 { display: inline-block;
+                         white-space: nowrap;
+                         vertical-align: middle;
+                       }
+.sectionlabel          { color: #444444;
+                         margin-top: 1em;
+                         border-bottom: 1px dashed #666666;
+                         font-style: italic;
+                         font-size: 111%;
+                       }
+.kind                  { font-style: italic;
+                         text-transform: uppercase;
+                       }
+.kindnote              { font-size: 90%; }
+.currentpage           { color: #666688;
+                         background: #e0e0f9;  /* for older browsers */
+                         background: linear-gradient(to right, #d4d4f4, #e8e8ff);
+                         border-right: 3px dotted #997755;
+                       }
+.currentpage A         { color: #777788; }
+.currentpage A:link    { color: #777788; }
+.currentpage A:visited { color: #777788; }
+.currentpage A:active  { color: #7777cc; }
+.currentpage A:hover   { color: #7777cc; }
+
+.barre                 { margin-left: auto;
+                         margin-right: auto;
+                         margin-top: 2em;
+                         margin-bottom: 2em;
+                         text-align: center;
+                       }
+
+.otherz .icon          { margin-right: 1.4em; vertical-align: middle; }
+.otherz H1             { margin-top: 0.66em;
+                         margin-bottom: 0.66em;
+                       }
+/* This might theoretically work in IE 6-9, though not in 10+... I couldn't get it to do anything in 9.
+.ietent                { position: relative;
+                         background: transparent;
+                         -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/tent.png', sizingMethod='scale', enabled='true')";
+                         filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/tent.png', sizingMethod='scale', enabled='true');
+                         width: 2.5em; height: 2.5em;
+                       }
+*/
+
+
+/* THE FOLLOWING STYLES ARE USED BY THE MAIN PAGE CONTENT AREA. */
+
+.meta                  { display: none; }
+.td_hardbody           { background-color: #fafaff;       /* move these to .hardbody when detableizing */
+                         background-image: url("img/palecape2.jpg");
+/*                       background-attachment: fixed;    /*...nah, fails badly with mobile browsers */
+                       }
+.hardbody              { display: block;
+                         margin: 0 auto;
+                         width: 96%;
+                         max-width: 800px;
+                         font-family: Spectral, "Times New Roman", Times, serif;
+                         padding: 1em 0.3em 0.5em 0.3em;
+                         word-spacing: 0.05em;
+                         line-height: 1.4em;
+                       }
+.hardbody LI I         { font-family: Spectral, "Times New Roman", Times, serif; }
+
+.box                   { margin: 0 20px 0 10px; }
+.star                  { vertical-align: bottom; }
+.finalimage            { margin-top: 3em;
+                         vertical-align: top;
+                         max-width: 95%;
+                         max-height: auto;
+                       }
+
+.index_page            {  }
+.catalog_hdr           { font-size: 166%;
+                         margin-top: 0;
+                         text-align: center;
+                         font-weight: bold;
+                         font-family: Sniglet, Arial, Helvetica, sans-serif;
+                       }
+.newest + .catalog_hdr { margin-top: 1em; }
+.section               { padding-left: 3em;
+                         padding-top: 1.3em;
+                         padding-bottom: 0.5em;
+                         font-size: 140%;
+                         font-weight: bold;
+                         font-style: italic;
+                         color: #CC0000;
+                         white-space: normal;
+                         line-height: 1.05em;
+                       }
+@media (max-width: 799px) {
+    .section           { padding-left: 1em; }
+}
+
+.rank_icons            { text-align: right;
+                         padding-right: 1em;
+                         white-space: nowrap;
+                         vertical-align: middle;
+                       }
+.iconlet_gap           { display: inline-block;
+                         width: 0.75em;
+                       }
+.iconlet               { width: 1.5em;
+                         height: 1.5em;
+                       }
+.icon                  { width: 2.5em;
+                         height: auto;
+                         image-rendering: auto;		    /* helps with Firefox, at least */
+                         -ms-interpolation-mode: bicubic;   /* IE 7 and 8... nothing helps IE 9-11 */
+                       }
+
+@media (max-width: 500px)
+{
+    .icon              { width: 1.5em; }
+    .plopnavv .icon    { width: 1.5em; }
+    .iconlet           { width: 1em;
+                         height: 1em;
+                       }
+}
+.index_title           { white-space: normal;
+                         padding: 0.25em 0 0.25em 0;
+                         line-height: 1.05em;
+                       }
+.index_note            { margin-top: 3em; }
+.movies                { /* white-space: nowrap; */
+                         vertical-align: middle;
+                       }
+.index_title A         { color: #000000; }
+.index_title A:link    { color: #000000; }
+.index_title A:visited { color: #000000; }
+.index_title A:active  { color: #000099; }
+.index_title A:hover   { color: #000099; }
+
+.reviewed              { font-weight: bold; }
+A.reviewed:hover       { text-decoration: underline; }
+.unreviewed            { font-style: italic; }
+A.unreviewed:hover     { text-decoration: underline; }
+.unseen                { color: #CC0000;
+                         font-size: 100%;
+                       }
+.unreleased            { color: #CC0000;
+                         font-size: 100%;
+                         font-style: oblique;
+                       }
+.asterisk              { font-family: "Times New Roman", Times, serif;
+                         font-size: large;
+                       }
+
+.panel                 { text-align: right;
+                         padding-bottom: 1em; 
+                       }
+.newest                { margin: 1em;
+                         margin-left: 0;
+                         font-size: 90%;
+                       }
+.newest HR             { margin-top: 2.5em; }
+.topper                { text-align: right;
+                         font-style: italic;
+                         font-size: 90%;
+                       }
+.taiteltab             { vertical-align: bottom; }
+.taiteltab TD          { height: 145px; }    /* a few of the box images are as high as 150 */
+.taiteltab H2          { margin-top: 0; }
+.taitel                { font-family: Sniglet, Arial, Helvetica, sans-serif;
+                         font-size: 133%;
+                         margin-bottom: 0;
+                         padding-bottom: 0;
+                       }
+.theetaitel            { font-size: 133%;
+                         color: #000000;
+                         text-shadow: 0.05em 0.05em 0.20em #aa4444aa;
+                         text-transform: uppercase;
+                       }
+.taitel_icons          { margin-top: 16px; }
+.rating                { position: relative;
+                         top: -0.25em;
+                         border: solid 1px black;
+                         border-radius: 2px;
+                         font-family: "Lucida Bright", "Palatino Linotype", "Palatino LT STD", "Times New Roman", Times, serif;
+                         font-size: 50%;
+                         padding: 0 0.3em;
+                         margin-left: 0.8em;
+                       }
+
+.t                     { font-weight: bold;
+                         font-style: normal;
+                       }
+.u                     { text-decoration: underline; }
+
+            /* the sequel navigation bar */
+.relatedbar2           { margin-top: 0.5em;
+                         font-size: 75%;
+                       }
+.relatedleft           { max-width: 25em;
+                         min-width: 250px;
+                         height: 3em;
+                         width: 46%;
+                         float: left;
+                         padding-bottom: 0.25em;
+                       }
+.relatedright          { max-width: 25em;
+                         min-width: 250px;
+                         height: 3em;
+                         width: 46%;
+                         float: right;
+                         padding-bottom: 0.25em;
+                       }
+.liner                 { width: 100%;
+                         height: 3em;
+                         /* display: inline-block; */
+                         position: relative;
+                         white-space: nowrap;
+                       }
+.liner > img           { width: 100%;
+                         height: 3em;
+                         display: block; }
+.plopup                { position: absolute;
+                         width: 100%;
+                         padding-top: 1px;
+                         z-index: 2;
+                       }
+.plopup  img           { width: 100%;
+                         height: 3em;
+                         display: block;
+                         margin-top: 0.2em;
+                         opacity: 0.88;
+                         filter: drop-shadow(0.1em 0.1em 0.33em #00000088);
+                       }
+
+.movienameL, .movienameR
+                       { position: absolute;
+                         z-index: 1;
+                         width: 85%;
+                         height: 2.4em;
+                         padding: 0.3em 5% 0.3em 5%;
+                         cursor: pointer;      /* does not work in IE 10; have to shim it in JS */
+                       }
+.movienameL            { text-align: right;
+                         margin-left: 5%;
+
+                       }
+.movienameR            { margin-right: 5%;
+                       }
+
+.liner .taitel         { font-size: 111%;
+                         font-weight: bold;
+                         color: #000099;
+                         padding: 0;
+                         width: 100%;
+                         overflow: hidden;
+                         text-overflow: ellipsis;
+                       }
+.relatelabel           { font-family: Sniglet, Arial, sans-serif;
+                         font-size: 85%;
+                         letter-spacing: 0.1em;
+                         line-height: 1em;
+                         color: #4c3065;
+                         padding: 0 0.1em;
+                         margin: -0.05em 0 -0.15em 0;
+                         /*margin-bottom: -0.2em;*/
+                       }
+.stepquel              { width: 100%;
+                         position: relative;
+                         margin-top: 0.33em;
+                         margin-bottom: 0.1em;
+                       }
+
+.additionalgap         { width: 0.5em; }
+.additionalL, .additionalR
+                       { height: 2.66em;
+                         width: 3.2em;
+                         position: absolute;
+                         z-index: 2;
+                       }
+.additionalL           { text-align: right;
+                         right: 0;
+                         padding: 0.33em 1.7em 0 0;
+                         cursor: pointer;
+                       }
+.additionalR           { padding: 0.33em 0 0 1.7em;
+                         cursor: pointer;
+                       }
+.additionalabel        { font-family: Sniglet, Arial, sans-serif;
+                         font-size: 95%;
+                         letter-spacing: 0.1em;
+                         line-height: 1.25em;
+                         color: #556699;
+                         padding-top: 0.2em;
+                       }
+.burger                { position: absolute;
+                         top: 0.8em;
+                         z-index: 1;
+                         width: 1.85em;
+                         height: 1.6em;
+                         opacity: 0.8;
+                       }
+.additionalL .burger   { right: -0.4em; }
+.additionalR .burger   { left: -0.4em; }
+
+.clear                 { clear: both; }
+
+
+.review                {  }
+.review A              { text-decoration: underline; }
+.preeeview             {  }
+.preeeview A           { text-decoration: underline }
+.review LI             { margin-bottom: 0.4em; }
+.review H3             { font-family: Sniglet, Arial, Helvetica, sans-serif;
+                         font-size: 1em;
+                         margin-top: 1.1em;
+                         margin-bottom: 0;
+                       }
+
+.sequel                { margin: 3em; }
+.alsopanel             { width: 100%; }
+.alsohere              { font-size: 80%;
+                         margin-top: 0.3em;
+                         margin-left: 1em;
+                         text-indent: -1em;
+                         padding-left: 1em;
+                         text-align: left;
+                         vertical-align: top;
+                         white-space: nowrap;
+                       }
+.topper A              { text-decoration: underline; }
+.floater               { float: right;
+                         width: 45%;
+                         height: auto;
+                         margin: 0 0 0.5em 1.5em;
+                       }
+
+.bestworsts            { width: 90%;
+                         text-align: center;
+                         margin-left: auto;
+                         margin-right: auto;
+                         border-spacing: 0.2em;
+                       }
+.bestworsts TR         { vertical-align: top; }
+.bwgutter              { width: 3em; }
+.bestorworst           { font-weight: bold;
+                         font-style: italic;
+                         padding-top: 2em;
+                         border-bottom: 1px dotted #888888;
+                         font-size: 110%;
+                       }
+.extraworst            { font-weight: bold;
+                         font-style: italic;
+                         padding-top: 2em;
+                         border-bottom: 1px dotted #888888;
+                         font-size: 110%;
+                       }
+H3 + P                 { margin-top: 0; }
+.categorylist          { margin-left: 3em;
+                         margin-bottom: 1.7em;
+                       }
+
+.intro-sep             { background-color: #DDDDDD;
+                         width: 50%;
+                         margin-top: 2em;
+                         margin-bottom: 2em;
+                       }
+.remake-sep            { width: 40%;
+                         height: 5px;
+                         color: #555555;
+                         background-color: #555555;
+                         border: none;
+                         margin-top: 3em;
+                         margin-bottom: 3em;
+                         -moz-border-radius: 3px;
+                         -webkit-border-radius: 3px;
+                         border-radius: 3px;
+                         box-shadow: 1px 1px 2px #cccccc;
+                       }
+
+.emcee                 { font-size: 111%;
+                         font-style: italic;
+                         text-align: center;
+                         margin: 1em auto 3em auto;
+                         width: 75%;
+                         min-width: 290px;
+                       }
+.footnote              { margin-top: 3em;
+                         margin-bottom: 2.5em;
+                         padding-left: 0.75em;
+                         font-size: 90%;
+                         border-left: 2px dotted #7777aa;
+                       }
+.endnote               { margin-top: 3.5em;
+                         margin-bottom: 3.5em;
+                         padding-left: 1.5em;
+                         padding-top: 0.5em;
+                         padding-bottom: 0.5em;
+                         font-size: 90%;
+                         border-left: 2px dotted #7777aa;
+                         background-color: #fcfcfc;
+                       }
+.quotation             { font-family: Sniglet, Arial, Helvetica, sans-serif;
+                         font-weight: bold;
+                         font-size: 90%;
+                       }
+.quotname              { font-family: Arial, Helvetica, sans-serif;
+                         color: #606060;
+                         font-weight: bold;
+                         font-size: 90%; /* of 90% = 81% */
+                       }
+.quotation P           { margin: 0 0 0.5em 0; }
+                       
+.underpad              { margin-top: 20em; }
+
+.stanley               { margin: 2em 20% 2em 20%;
+                         padding: 0.75em;
+                         background-color: #F9F9E9;
+                         border: 1px solid #999999;
+                         text-align: center;
+                       }
+.stanley P             { margin: 0.3em 0 0 0;
+                         text-align: left;
+                       }
+.honoree               { margin-bottom: 0.33em;
+                       }
+
+.commentation         { margin-top: 1.75rem; }
+.commentation h3      { font-size: 175%;
+                        font-family: inherit;
+                      }
+.termination          { font-size: 90%; }
+
+.smallgap LI           { margin-top: 0.25em; }
+
+    /* obsolete -- a span of this class, containing a space, creates a zero-width space upon
+       which word breaks can happen (but in some IE versions it has a width of one pixel) */
+.zws                   { font-size: 0;
+                         visibility: hidden;
+                         letter-spacing: 0;
+                       }

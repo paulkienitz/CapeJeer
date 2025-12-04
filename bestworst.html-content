@@ -1,0 +1,49 @@
+<h1 class='catalog_hdr'>Bests and Worsts</h1>
+
+<table class='bestworsts'>
+
+<tr>
+	<td class='bestorworst'>Best Director</td>
+	<td class='bwgutter'> </td>
+	<td class='bestorworst'>Worst Director</td>
+</tr>
+<tr>
+	<td>Somebody &mdash; <a class=t href='interesting4'>Some Film</a></td>
+	<td class='bwgutter'> </td>
+	<td>Someone Else &mdash; <a class=t href='artman'>Some Other Film</a></td>
+</tr>
+
+<tr>
+	<td class='bestorworst'>Best Actor</td>
+	<td class='bwgutter'> </td>
+	<td class='bestorworst'>some actor</td>
+</tr>
+<tr>
+	<td>Some Other Schmo &mdash; <a class=t href='interesting4-1984'>Another Movie</a></td>
+	<td class='bwgutter'> </td>
+	<td>Some Additional Doofus &mdash; <a class=t href='slouchingdead'>Some Other Movie</a></td>
+</tr>
+
+<tr>
+	<td class='extraworst'>et cetera</td>
+	<td class='bwgutter'> </td>
+	<td class='extraworst'>and so on</td>
+</tr>
+<tr>
+	<td>Duh &mdash; <a class=t href='foo'>Foo</a></td>
+	<td class='bwgutter'> </td>
+	<td>Buh &mdash; <a class=t href='bar'>Bar</a></td>
+</tr>
+
+
+<tr>
+	<td class='bestorworst' colspan='3'>Special Recognition for Whatever Else Matters</td>
+</tr>
+<tr>
+	<td colspan='3'>
+		<div class=honoree>
+			whatever
+		</div>
+	</td>
+</tr>
+</table>

@@ -1,0 +1,13 @@
+  <div class='review newest' style='margin-bottom: 0.4em'>
+    Cape Jeer now supports comments on reviews!&ensp;Let us know what you
+    thought of the movie.
+  </div>
+  <div class='review newest' style='margin-top: 0.4em'>
+    <!-- SAMPLE FILM LIST: -->
+    <i>Newest films added:</i>
+    <a class='t' href='artman'>Art-Man</a>,
+    <a class='t' href='slouchingdead'>The Slouching Dead</a>,
+    <a class='t' href='roper'>Steve Roper</a>,
+    <a class='t' href='alleyoop'>Albert Oop, Jr</a>.
+    <!-- hr class='intro-sep' -->
+  </div>
